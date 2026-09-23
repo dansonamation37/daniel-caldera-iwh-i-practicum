@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Add a Pet
+    a(href="/") Return to the homepage
+    form(action="/update-cobj", method="POST")
+      label(for="name") Name
+      input(type="text", id="name", name="name", required)
+      label(for="performer_name") Performer_Name
+      input(type="text", id="performer_name", name="performer_name", required)
+      label(for="genre") Genre
+      input(type="text", id="genre", name="genre")
+      label(for="audience_size") Audience_Size
+      textarea(id="audience_size", name="audience_size")
+      button(type="submit") Submit
