@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    a(href="/update-cobj") Add to this table
+    h1 Pets
+    table
+      thead
+        tr
+          th Name
+          th Performer_Name
+          th Genre 
+          th Audience_Size
+      tbody
+        each record in records
+          tr
+            td= record.properties.name
+            td= record.properties.performer_name 
+            td= record.properties.genre 
+            td= record.properties.audience_size 

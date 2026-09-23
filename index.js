@@ -39,6 +39,20 @@ app.post('/update-cobj', async (req, res) => {
     res.status(500).send('Error creating record');
   }
 });
+
+app.get('/', async (req, res) => {
+  const url = `https://api.hubapi.com/crm/v3/objects/${OBJECT_TYPE}?properties=name,performer_name,genre,audience_size`;
+  try {
+    const response = await axios.get(url, { headers });
+    res.render('homepage', {
+      title: 'Performers | Integrating With HubSpot I Practicum',
+      records: response.data.results
+    });
+  } catch (error) {
+    console.error(error.response ? error.response.data : error.message);
+    res.status(500).send('Error retrieving records');
+  }
+});
 //
 
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));
